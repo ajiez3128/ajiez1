@@ -96,7 +96,7 @@ cat > /etc/xray/config.json << END
   },
   "inbounds": [
     {
-      "port": 8443,
+      "port": 443,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -122,7 +122,7 @@ cat > /etc/xray/config.json << END
         "kcpSettings": {},
         "httpSettings": {},
         "wsSettings": {
-          "path": "/vmess/",
+          "path": "/files",
           "headers": {
             "Host": ""
           }
@@ -151,7 +151,7 @@ cat > /etc/xray/config.json << END
         "kcpSettings": {},
         "httpSettings": {},
         "wsSettings": {
-          "path": "/vmess/",
+          "path": "/files",
           "headers": {
             "Host": ""
           }
@@ -167,7 +167,7 @@ cat > /etc/xray/config.json << END
       }
     },
     {
-      "port": 9443,
+      "port": 443,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -397,8 +397,8 @@ END
 
 # // Enable & Start Service
 # Accept port Xray
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2083 -j ACCEPT
@@ -497,7 +497,7 @@ END
 # Installing Trojan Go Service
 cat > /etc/systemd/system/trojan-go.service << END
 [Unit]
-Description=Trojan-Go Service Mod By SL
+Description=Trojan-Go Service Mod Ajiez
 Documentation=nekopoi.care
 After=network.target nss-lookup.target
 
@@ -516,7 +516,7 @@ END
 
 cat > /etc/systemd/system/trojan-go@.service << END
 [Unit]
-Description=Trojan-Go Service Mod By SL
+Description=Trojan-Go Service Mod Ajiez
 Documentation=nekopoi.care
 After=network.target nss-lookup.target
 
@@ -593,11 +593,11 @@ chmod 755 /etc/cron.d/reboot_vps
 chmod 755 /root/reboot_otomatis.sh
 
 cd /usr/bin
-wget -O cektrojan "https://raw.githubusercontent.com/antinsp/bonetrojan/main/jejel/menu/cek/cektrojan.sh"
-wget -O cekv2ray "https://raw.githubusercontent.com/antinsp/bonetrojan/main/jejel/menu/cek/cekv2ray.sh"
-wget -O addv2ray "https://raw.githubusercontent.com/antinsp/bonetrojan/main/jejel/menu/vmess/addv2ray.sh"
-wget -O delv2ray "https://raw.githubusercontent.com/antinsp/bonetrojan/main/jejel/menu/vmess/delv2ray.sh"
-wget -O renewv2ray "https://raw.githubusercontent.com/antinsp/bonetrojan/main/jejel/menu/vmess/renewv2ray.sh"
+wget -O cekv2ray "https://raw.github.com/ajiez3128/ajiez1/main/jajal/menu/cek/cektrojan.sh"
+wget -O cekv2ray "https://raw.github.com/ajiez3128/ajiez1/main/jajal/menu/cek/cekv2ray.sh"
+wget -O addv2ray "https://raw.github.com/ajiez3128/ajiez1/main/jajal/menu/vmess/addv2ray.sh"
+wget -O delv2ray "https://raw.github.com/ajiez3128/ajiez1/main/jajal/menu/vmess/delv2ray.sh"
+wget -O renewv2ray "https://raw.github.com/ajiez3128/ajiez1/main/jajal/menu/vmess/renewv2ray.sh"
 
 chmod +x cektrojan
 chmod +x cekv2ray
