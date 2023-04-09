@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mod By SL
+# Mod Ajiez
 #echo "$crot    ALL=(ALL:ALL) ALL" >> /etc/sudoers;
 wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/ajiez3128/ajiez1/main/sshd_config;
 systemctl restart sshd;
